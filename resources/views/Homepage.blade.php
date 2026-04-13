@@ -23,9 +23,9 @@
         .cta-button:hover { background: #1e3f7a; }
 
         @keyframes gradientMove {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .feature-card:hover,
@@ -91,14 +91,6 @@
         .faq-item.open .toggle-icon { transform: rotate(180deg); }
         .faq-item.open .faq-answer { display: block; }
         
-        /* Contact Section 
-        .contact-section { padding: 3rem 2rem; max-width: 1200px; margin: 0 auto; }
-        .contact-section h2 { font-size: 28px; font-weight: 600; margin-bottom: 2rem; color: #1a3a52; }
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .contact-card { background: #f0f4f8; padding: 1.5rem; border-radius: 8px; text-align: center; border: 1px solid #d0dce6; }
-        .contact-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 0.75rem; color: #1a3a52; }
-        .contact-card p { color: #666; font-size: 14px; } */
-        
         /* Footer */
         footer { background: #1a3a52; padding: 2rem; text-align: center; color: #ccc; font-size: 13px; }
         footer a { color: #99b3cc; text-decoration: none; }
@@ -107,7 +99,6 @@
         /* Form Styles */
         .form-section { padding: 3rem 2rem; background: #f5f5f5; }
         .form-row {display: grid;grid-template-columns: 1fr 1fr;gap: 15px;}
-        @media (max-width: 600px) {.form-row {grid-template-columns: 1fr;}}
         .form-container {max-width: 1200px; margin: 0 auto;padding: 2.5rem;border-radius: 16px;background: rgba(255,255,255,0.75);backdrop-filter: blur(12px);border: 1px solid rgba(255,255,255,0.3);box-shadow: 0 10px 30px rgba(0,0,0,0.08);}
         .form-container h2 { text-align: center; margin-bottom: 2rem; font-size: 28px; font-weight: 600; color: #1a3a52; }
         .form-group { display: flex; flex-direction: column;margin-bottom: 1.5rem; transition: transform 0.2s ease;}
@@ -119,15 +110,8 @@
         .submit-btn:hover {transform: translateY(-2px); box-shadow: 0 8px 20px rgba(44,90,160,0.3);}
         .input-icon {position: relative;}
         .input-icon span {position: absolute;left: 12px;top: 50%;transform: translateY(-50%);font-size: 16px;}
-        .input-icon input {padding-left: 40px; /* bagi ruang icon */}
-        .input-icon input:focus {padding-left: 45px; /* tambah ruang saat fokus */}
-
-        @media (max-width: 768px) {
-            nav { flex-direction: column; gap: 1rem; }
-            .nav-links { gap: 1rem; }
-            .hero h1 { font-size: 32px; }
-            .hero p { font-size: 16px; }
-        }
+        .input-icon input {padding-left: 40px;}
+        .input-icon input:focus {padding-left: 45px;}
 
         .dot-overlay {
             position: fixed;
@@ -135,14 +119,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-
-            background: rgba(255,255,255,0.8); /* blur effect */
+            background: rgba(255,255,255,0.8);
             backdrop-filter: blur(5px);
-
-            display: none; /* penting: default hidden */
+            display: none;
             justify-content: center;
             align-items: center;
-
             z-index: 9999;
         }
 
@@ -153,7 +134,6 @@
             margin: 5px;
             background: #2c5aa0;
             border-radius: 50%;
-
             animation: bounce 0.6s infinite alternate;
         }
 
@@ -187,7 +167,6 @@
             transform: translateY(0);
         }
 
-        /* Bar jadi flexible */
         .progress-bar {
             flex: 1;
             height: 6px;
@@ -197,7 +176,6 @@
             transition: width 0.3s ease;
         }
 
-        /* Text % */
         .progress-text {
             font-size: 13px;
             font-weight: 600;
@@ -217,6 +195,253 @@
             border-radius: 50%;
             text-decoration: none;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* ===== TABLET ADJUSTMENTS (iPad & Medium Tablets) ===== */
+        @media (max-width: 1024px) {
+            nav { padding: 1rem 1.5rem; }
+            .logo { font-size: 16px; }
+            .nav-links { gap: 1.5rem; }
+            .nav-links a { font-size: 13px; }
+            
+            .hero { padding: 3.5rem 1.5rem; }
+            .hero h1 { font-size: 36px; }
+            .hero p { font-size: 16px; }
+            
+            .features { padding: 2.5rem 1.5rem; gap: 1.5rem; }
+            .feature-card h3 { font-size: 16px; }
+            
+            .info-section { padding: 2.5rem 1.5rem; }
+            .info-section h2 { font-size: 24px; }
+            .info-grid { gap: 1.5rem; }
+            
+            .terms-section { padding: 2.5rem 1.5rem; }
+            .terms-section h2 { font-size: 24px; }
+            .terms-grid { gap: 1.5rem; }
+            
+            .faq-section { padding: 2.5rem 1.5rem; }
+            .faq-section h2 { font-size: 24px; }
+            
+            .form-section { padding: 2.5rem 1.5rem; }
+            .form-container { padding: 2rem; }
+            .form-row { gap: 12px; }
+            
+            footer { padding: 1.5rem; font-size: 12px; }
+        }
+
+        /* ===== SMALL TABLETS & LARGE PHONES ===== */
+        @media (max-width: 768px) {
+            nav { 
+                padding: 1rem; 
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .logo { 
+                font-size: 14px;
+                width: 100%;
+                text-align: center;
+            }
+            .nav-links { 
+                gap: 1rem;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .nav-links a { font-size: 12px; }
+            
+            .hero { 
+                padding: 2.5rem 1rem; 
+            }
+            .hero h1 { font-size: 28px; }
+            .hero p { font-size: 14px; }
+            .cta-button { padding: 10px 24px; font-size: 14px; }
+            
+            .features { 
+                grid-template-columns: 1fr;
+                padding: 2rem 1rem; 
+                gap: 1rem;
+            }
+            .feature-card { padding: 1.25rem; }
+            .feature-card h3 { font-size: 15px; }
+            .feature-card p { font-size: 13px; }
+            
+            .info-section { padding: 2rem 1rem; }
+            .info-section h2 { font-size: 22px; margin-bottom: 1.5rem; }
+            .info-grid { 
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .info-item { padding: 1.25rem; }
+            .info-item h4 { font-size: 14px; }
+            .info-item p { font-size: 12px; }
+            
+            .terms-section { padding: 2rem 1rem; }
+            .terms-section h2 { font-size: 22px; margin-bottom: 1.25rem; }
+            .terms-grid { 
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .term-item { padding: 1.25rem; }
+            
+            .faq-section { padding: 2rem 1rem; }
+            .faq-section h2 { font-size: 22px; margin-bottom: 1.5rem; }
+            .faq-question { padding: 0.875rem; font-size: 13px; }
+            .faq-answer { padding: 0 0.875rem 0.875rem; font-size: 12px; }
+            
+            .form-section { padding: 2rem 1rem; }
+            .form-container { 
+                padding: 1.5rem;
+                border-radius: 12px;
+            }
+            .form-container h2 { font-size: 22px; margin-bottom: 1.25rem; }
+            .form-group { margin-bottom: 1rem; }
+            .form-row { 
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            label { font-size: 12px; }
+            input, select { 
+                padding: 10px 12px; 
+                font-size: 13px; 
+                border-radius: 6px;
+            }
+            .submit-btn { 
+                padding: 12px;
+                font-size: 14px;
+                border-radius: 6px;
+            }
+            
+            footer { padding: 1.5rem 1rem; font-size: 11px; }
+        }
+
+        /* ===== SMARTPHONES (iPhone, Android) ===== */
+        @media (max-width: 480px) {
+            nav { 
+                padding: 0.75rem;
+            }
+            .logo { 
+                font-size: 13px;
+                margin-bottom: 0.5rem;
+            }
+            .nav-links { 
+                gap: 0.75rem;
+            }
+            .nav-links a { font-size: 10px; }
+            
+            .hero { 
+                padding: 2rem 1rem; 
+            }
+            .hero h1 { 
+                font-size: 24px; 
+                margin-bottom: 0.75rem;
+            }
+            .hero p { 
+                font-size: 13px; 
+                margin-bottom: 1.25rem;
+            }
+            .cta-button { 
+                padding: 10px 20px; 
+                font-size: 13px;
+                border-radius: 4px;
+            }
+            
+            .features { 
+                padding: 1.5rem 1rem; 
+                gap: 1rem;
+            }
+            .feature-card { 
+                padding: 1.25rem; 
+                border-radius: 6px;
+            }
+            .feature-card h3 { font-size: 14px; }
+            .feature-card p { font-size: 12px; }
+            
+            .info-section { padding: 1.5rem 1rem; }
+            .info-section h2 { font-size: 20px; margin-bottom: 1rem; }
+            .info-grid { gap: 1rem; }
+            .info-item { 
+                padding: 1.25rem;
+                border-radius: 6px;
+            }
+            .info-item h4 { font-size: 13px; }
+            .info-item p { font-size: 12px; }
+            
+            .terms-section { padding: 1.5rem 1rem; }
+            .terms-section h2 { font-size: 20px; margin-bottom: 1rem; }
+            .terms-grid { gap: 0.75rem; }
+            .term-item { 
+                padding: 1rem; 
+                border-radius: 6px;
+            }
+            
+            .faq-section { padding: 1.5rem 1rem; }
+            .faq-section h2 { font-size: 20px; margin-bottom: 1rem; }
+            .faq-question { 
+                padding: 0.75rem; 
+                font-size: 12px;
+                gap: 0.5rem;
+            }
+            .faq-answer { 
+                padding: 0 0.75rem 0.75rem; 
+                font-size: 11px;
+            }
+            .toggle-icon { font-size: 16px; }
+            
+            .form-section { padding: 1.5rem 1rem; }
+            .form-container { 
+                padding: 1.25rem;
+                border-radius: 10px;
+                max-width: 100%;
+            }
+            .form-container h2 { 
+                font-size: 18px; 
+                margin-bottom: 1rem;
+            }
+            .form-group { margin-bottom: 0.875rem; }
+            .form-row { gap: 8px; }
+            label { font-size: 11px; }
+            input, select { 
+                padding: 9px 10px; 
+                font-size: 12px; 
+                border-radius: 5px;
+            }
+            .submit-btn { 
+                padding: 11px;
+                font-size: 13px;
+                border-radius: 5px;
+                margin-top: 0.5rem;
+            }
+            
+            footer { 
+                padding: 1.25rem 1rem; 
+                font-size: 10px;
+            }
+
+            .floating-wa {
+                bottom: 15px;
+                right: 15px;
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+                padding: 12px;
+            }
+        }
+
+        /* ===== VERY SMALL PHONES (iPhone SE, Etc) ===== */
+        @media (max-width: 375px) {
+            .logo { font-size: 12px; }
+            .nav-links a { font-size: 9px; }
+            
+            .hero h1 { font-size: 20px; }
+            .hero p { font-size: 12px; }
+            
+            .feature-card h3 { font-size: 13px; }
+            .feature-card p { font-size: 11px; }
+            
+            .form-container { padding: 1rem; }
+            .form-container h2 { font-size: 16px; }
+            label { font-size: 10px; }
+            input, select { font-size: 11px; }
         }
     </style>
 </head>
