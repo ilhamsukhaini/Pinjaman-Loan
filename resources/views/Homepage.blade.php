@@ -663,46 +663,66 @@
     <script>
         // Handle form submission
         document.getElementById('loanForm').addEventListener('submit', async function(event) {
-            event.preventDefault();
+        event.preventDefault();
 
-            const spinner = document.getElementById('loadingSpinner');
-            spinner.style.display = 'flex'; // ✅ SHOW SPINNER
+        const submitBtn = this.querySelector('.submit-btn');
+        const originalText = submitBtn.textContent;
 
-            const formData = new FormData(this);
+        submitBtn.textContent = '⏳ Sedang memproses...';
+        submitBtn.disabled = true;
 
-            try {
-                await delay(1000); // ⏳ delay 1 saat
+        const formData = new FormData(this);
 
-                const response = await fetch('/submit-loan-application', {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
+        try {
+            const response = await fetch('/submit-loan-application', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
 
-                const data = await response.json();
+            const data = await response.json();
 
-                spinner.style.display = 'none'; // ❌ HIDE SPINNER
+            if (data.success) {
+                submitBtn.textContent = '✅ Berjaya!';
+                submitBtn.style.background = '#28a745';
 
-                if (data.success) {
+                alert('✅ Permohonan berjaya!');
 
-                    // ✅ FIX: guna location.href (mobile friendly)
-                    // ✅ Open in new blank tab
+                // ✅ DETECT DEVICE TYPE
+                const isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+                if (isMobile) {
+                    // 📱 MOBILE - redirect dalam page
+                    window.location.href = data.whatsapp_url;
+                } else {
+                    // 💻 DESKTOP - open new tab
                     window.open(data.whatsapp_url, '_blank');
-
-                    // Reset form
+                    
+                    // Reset form (only on desktop sebab mobile redirect)
                     this.reset();
 
-                } else {
-                    alert('❌ Ada ralat. Sila cuba lagi.');
+                    // Reset button
+                    setTimeout(() => {
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                        submitBtn.style.background = '#2c5aa0';
+                    }, 2000);
                 }
-            } catch (error) {
-                spinner.style.display = 'none'; // ❌ HIDE kalau error juga
-                console.error('Error:', error);
-                alert('❌ Ada ralat dalam sistem. Sila hubungi kami.');
             }
-        });
+        } catch (error) {
+            console.error('Error:', error);
+            submitBtn.textContent = '❌ Ada Ralat!';
+            submitBtn.style.background = '#dc3545';
+
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                submitBtn.style.background = '#2c5aa0';
+            }, 2000);
+        }
+    });
 
         // Fungsi delay untuk simulasi loading
         function delay(ms) {
