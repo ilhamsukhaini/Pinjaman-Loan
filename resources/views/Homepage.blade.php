@@ -688,10 +688,11 @@
                 if (data.success) {
 
                     // ✅ FIX: guna location.href (mobile friendly)
-                    window.location.href = data.whatsapp_url;
+                    // ✅ Open in new blank tab
+                    window.open(data.whatsapp_url, '_blank');
 
-                    // ❗ OPTIONAL: reset form (tak penting sangat sebab dah redirect)
-                    // this.reset();
+                    // Reset form
+                    this.reset();
 
                 } else {
                     alert('❌ Ada ralat. Sila cuba lagi.');

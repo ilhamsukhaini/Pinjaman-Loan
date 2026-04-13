@@ -39,8 +39,8 @@ class LoanController extends Controller
     private function formatWhatsAppMessage($data)
     {
         $employmentTypeMap = [
-            'kerajaan' => 'Kerajaan',
-            'kontrak' => 'Kontrak',
+            'kerajaan' => 'Kerajaan (tetap)',
+            'kontrak' => 'Kerajaan (Kontrak)',
             'swasta' => 'Swasta'
         ];
 
