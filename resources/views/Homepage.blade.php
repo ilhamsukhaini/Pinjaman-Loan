@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinjaman Koperasi - Solusi Kewangan Terpercaya</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; background: #f9f9f9; line-height: 1.6; }
+        
+        /* Navigation */
+        nav { background: white; border-bottom: 1px solid #e0e0e0; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .logo { font-size: 18px; font-weight: 600; color: #2c5aa0; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: #666; font-size: 14px; transition: color 0.2s; }
+        .nav-links a:hover { color: #2c5aa0; }
+        
+        /* Hero Section */
+        .hero { background: linear-gradient(135deg, #dbeafe, #ebe4d9, #e0f2fe); background-size: 200% 200%; animation: gradientMove 8s ease infinite; padding: 4rem 2rem; text-align: center; }
+        .hero h1 { font-size: 42px; font-weight: 600; margin-bottom: 1rem; line-height: 1.2; color: #1a3a52; }
+        .hero p { font-size: 18px; color: #666; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .cta-button { background: #2c5aa0; color: white; padding: 12px 32px; border: none; border-radius: 6px; font-size: 16px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+        .cta-button:hover { background: #1e3f7a; }
+
+        @keyframes gradientMove {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+        }
+
+        .feature-card:hover,
+        .info-item:hover,
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: -100%;
+            background: rgba(255,255,255,0.2);
+            transition: 0.4s;
+        }
+
+        .cta-button:hover::after {
+            left: 100%;
+        }
+        
+        /* Features Section */
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; padding: 3rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .feature-card { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 1.5rem; }
+        .feature-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 0.75rem; color: #2c5aa0; }
+        .feature-card p { font-size: 14px; color: #666; }
+        
+        /* Info Section */
+        .info-section { padding: 3rem 2rem; background: #f5f5f5; }
+        .info-container { max-width: 1200px; margin: 0 auto; }
+        .info-section h2 { font-size: 28px; font-weight: 600; margin-bottom: 2rem; color: #1a3a52; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .info-item { background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e0e0e0; }
+        .info-item h4 { font-size: 16px; font-weight: 600; margin-bottom: 0.5rem; color: #1a3a52; }
+        .info-item p { font-size: 14px; color: #666; }
+        
+        /* Terms Section */
+        .terms-section { padding: 3rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .terms-section h2 { font-size: 28px; font-weight: 600; margin-bottom: 1.5rem; color: #1a3a52; }
+        .terms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 25px; }
+        #term-item-full {grid-column: 1/-1;}
+        .term-item { background: #f0f4f8; padding: 1rem; border-radius: 6px; border-left: 4px solid #2c5aa0; padding: 20px}
+        .term-item strong { color: #2c5aa0; }
+        
+        /* FAQ Section */
+        .faq-section { padding: 3rem 2rem; background: #fdfdfd; }
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-section h2 { font-size: 28px; font-weight: 600; margin-bottom: 2rem; color: #1a3a52; }
+        .faq-item { background: white; margin-bottom: 1rem; border-radius: 8px; overflow: hidden; border: 1px solid #e0e0e0; }
+        .faq-question { padding: 1.25rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #1a3a52; transition: background 0.2s; }
+        .faq-question:hover { background: #f9f9f9; }
+        .faq-answer { padding: 0 1.25rem 1.25rem; color: #666; font-size: 14px; display: none; }
+        .toggle-icon { font-size: 18px; transition: transform 0.2s; }
+        .faq-item.open .toggle-icon { transform: rotate(180deg); }
+        .faq-item.open .faq-answer { display: block; }
+        
+        /* Contact Section 
+        .contact-section { padding: 3rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .contact-section h2 { font-size: 28px; font-weight: 600; margin-bottom: 2rem; color: #1a3a52; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .contact-card { background: #f0f4f8; padding: 1.5rem; border-radius: 8px; text-align: center; border: 1px solid #d0dce6; }
+        .contact-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 0.75rem; color: #1a3a52; }
+        .contact-card p { color: #666; font-size: 14px; } */
+        
+        /* Footer */
+        footer { background: #1a3a52; padding: 2rem; text-align: center; color: #ccc; font-size: 13px; }
+        footer a { color: #99b3cc; text-decoration: none; }
+        footer a:hover { color: white; }
+        
+        /* Form Styles */
+        .form-section { padding: 3rem 2rem; background: #f5f5f5; }
+        .form-row {display: grid;grid-template-columns: 1fr 1fr;gap: 15px;}
+        @media (max-width: 600px) {.form-row {grid-template-columns: 1fr;}}
+        .form-container {max-width: 1200px; margin: 0 auto;padding: 2.5rem;border-radius: 16px;background: rgba(255,255,255,0.75);backdrop-filter: blur(12px);border: 1px solid rgba(255,255,255,0.3);box-shadow: 0 10px 30px rgba(0,0,0,0.08);}
+        .form-container h2 { text-align: center; margin-bottom: 2rem; font-size: 28px; font-weight: 600; color: #1a3a52; }
+        .form-group { display: flex; flex-direction: column;margin-bottom: 1.5rem; transition: transform 0.2s ease;}
+        .form-group:hover {transform: scale(1.01);}
+        label { display: block; margin-bottom: 0.5rem; font-size: 14px; font-weight: 600; color: #1a3a52; }
+        input, select { width: 100%; padding: 12px 14px; border: 1px solid #d0dce6; border-radius: 8px; font-size: 14px; font-family: inherit; transition: all 0.25s ease;background: #f9fbfd;}
+        input:focus, select:focus { outline: none; border-color: #2c5aa0; background: #f9fbfc; box-shadow: 0 0 0 3px rgba(44,90,160,0.1);}
+        .submit-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, #2c5aa0, #1e3f7a); color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+        .submit-btn:hover {transform: translateY(-2px); box-shadow: 0 8px 20px rgba(44,90,160,0.3);}
+        .input-icon {position: relative;}
+        .input-icon span {position: absolute;left: 12px;top: 50%;transform: translateY(-50%);font-size: 16px;}
+        .input-icon input {padding-left: 40px; /* bagi ruang icon */}
+        .input-icon input:focus {padding-left: 45px; /* tambah ruang saat fokus */}
+
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 1rem; }
+            .nav-links { gap: 1rem; }
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 16px; }
+        }
+
+        .dot-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            background: rgba(255,255,255,0.8); /* blur effect */
+            backdrop-filter: blur(5px);
+
+            display: none; /* penting: default hidden */
+            justify-content: center;
+            align-items: center;
+
+            z-index: 9999;
+        }
+
+        .dot-loader span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin: 5px;
+            background: #2c5aa0;
+            border-radius: 50%;
+
+            animation: bounce 0.6s infinite alternate;
+        }
+
+        .dot-loader span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .dot-loader span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+                opacity: 0.5;
+            }
+            to {
+                transform: translateY(-15px);
+                opacity: 1;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Bar jadi flexible */
+        .progress-bar {
+            flex: 1;
+            height: 6px;
+            background: #2c5aa0;
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* Text % */
+        .progress-text {
+            font-size: 13px;
+            font-weight: 600;
+            color: #2c5aa0;
+            min-width: 40px;
+            text-align: right;
+        }
+
+        .floating-wa {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            font-size: 24px;
+            padding: 15px;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">💰Pinjaman Koperasi </div>
+        <ul class="nav-links">
+            <li><a href="#features">Keistimewaan</a></li>
+            <li><a href="#syarat">Syarat</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Hubungi</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Pinjaman Mudah & Dipercayai</h1>
+        <p>Dapatkan pinjaman dengan proses yang cepat. Kami memahami keperluan finansial anda.</p>
+        <button class="cta-button" onclick="document.querySelector('.form-section').scrollIntoView({behavior: 'smooth'})">Mohon Pinjaman Sekarang</button>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features features fade-in" id="features">
+        <div class="feature-card">
+            <h3>✓ Proses Cepat</h3>
+            <p>Permohonan diproses dalam 3-5 hari kerja dengan dokumentasi yang mudah.</p>
+        </div>
+        <div class="feature-card">
+            <h3>✓ Fleksibel</h3>
+            <p>Tempoh bayaran balik boleh disesuaikan mengikut kemampuan anda.</p>
+        </div>
+        <div class="feature-card">
+            <h3>✓ Selamat</h3>
+            <p>Data anda dilindungi dengan standar keselamatan kelas dunia.</p>
+        </div>
+    </section>
+    
+    <!-- Info Section -->
+    <section class="info-section info-section fade-in" id="syarat">
+        <div class="info-container">
+            <h2>Maklumat Pinjaman</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <h4>Amaun Pinjaman</h4>
+                    <p><strong>RM 5,000 - RM 400,000</strong><br>Bergantung pada kelayakan peminjam</p>
+                </div>
+                <div class="info-item">
+                    <h4>Tempoh Bayaran</h4>
+                    <p><strong>2 tahun - 13 tahun mengikut umur</strong><br>Bayaran bulanan yang mudah</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Terms Section -->
+    <section class="terms-section terms-section fade-in">
+        <h2>Syarat & Kelayakan</h2>
+        <div class="terms-grid">
+            <div class="term-item">
+                <strong>Umur:</strong> 21 - 55 tahun
+            </div>
+            <div class="term-item">
+                <strong>Pendapatan:</strong> Minimum RM 1,500/bulan
+            </div>
+            <div class="term-item">
+                <strong>Dokumen:</strong> Salinan IC, Slip Gaji (3 bulan)
+            </div>
+            <div class="term-item">
+                <strong>Kelayakan:</strong> Mengikut gaji terkini
+            </div>
+            <div class="term-item" id="term-item-full">
+                <strong>Jenis Pekerjaan:</strong> Kerja tetap/kontrak untuk <strong style="color: rgb(114, 100, 100)">kakitangan kerajaan.</strong> Basic RM 2,500 ke atas untuk <strong style="color: rgb(114, 100, 100)">swasta dan GLC.</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credit History Info Section -->
+    <section class="info-section info-section fade-in">
+        <div class="info-container">
+            <h2 class="section-title">Kelayakan Kredit Fleksibel</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">CCRIS Rekod <span style="color: #28a745;">✓</span></div>
+                    <div class="info-description">Kami terima pemohon dengan sejarah CCRIS apapun</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">CTOS Status <span style="color: #28a745;">✓</span></div>
+                    <div class="info-description">Status CTOS tidak menghalang permohonan anda</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">AKPK Registered <span style="color: #28a745;">✓</span></div>
+                    <div class="info-description">Individu dalam AKPK boleh memohon pinjaman</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Blacklist Status <span style="color: #28a745;">✓</span></div>
+                    <div class="info-description">Blacklist tidak menghalang anda dari memohon</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="faq-section faq-section fade-in" id="faq">
+        <div class="faq-container">
+            <h2>Soalan Lazim (FAQ)</h2>
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    Berapa lama proses permohonan?
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="faq-answer">Biasanya 3-5 hari kerja selepas semua dokumen lengkap diserahkan. Pemohon akan dimaklumkan melalui telefon atau email.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    Adakah ada yuran tersembunyi?
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="faq-answer">Tidak. Semua caj telah dijelaskan sejelas-jelasnya dalam perjanjian pinjaman. Tiada yuran tersembunyi sama sekali.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    Boleh saya bayar lebih awal?
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="faq-answer">Ya, anda dibenarkan untuk melunaskan pinjaman lebih awal tanpa penalti atau denda tambahan.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    Keperluan dokumen apa saja?
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="faq-answer">Salinan IC, slip gaji terbaru (3 bulan)</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Application Form Section -->
+    <section class="form-section">
+        <div class="form-container">
+            <h2>Borang Permohonan Pinjaman</h2>
+            <form id="loanForm">
+                @csrf
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nama Penuh*</label>
+                        <div class="input-icon">
+                            <span>👤</span>
+                            <input type="text" name="nama" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Jawatan*</label>
+                        <input type="text" name="jawatan" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>No. Kad Pengenalan*</label>
+                        <div class="input-icon">
+                            <span>🪪</span>
+                            <input type="text" name="ic" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Jenis Pekerjaan*</label>
+                        <select name="employment_type" required>
+                            <option value="">-- Pilih --</option>
+                            <option value="kerajaan">Kerajaan (Tetap)</option>
+                            <option value="kontrak">Kerajaan (Kontrak)</option>
+                            <option value="swasta">Swasta</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>No. Telefon*</label>
+                        <div class="input-icon">
+                            <span>📞</span>
+                            <input type="tel" name="telefon" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tempoh Berkhidmat*</label>
+                        <input type="text" name="tempoh_berkhidmat" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Email*</label>
+                    <div class="input-icon">
+                        <span>📧</span>
+                        <input type="email" name="email" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Hantarkan ke WhatsApp</button>
+                <br> <br>
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                    <div class="progress-text"></div>
+                </div>
+            </form> 
+        </div>
+    </section> 
+
+    <a href="https://wa.me/60123456789" class="floating-wa">💬</a>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Koperasi Pinjaman Malaysia. Semua hak terpelihara. | <a href="#">Dasar Privasi</a> | <a href="#">Syarat Penggunaan</a></p>
+    </footer>
+    
+    <script>
+        // Handle form submission
+        document.getElementById('loanForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const spinner = document.getElementById('loadingSpinner');
+            spinner.style.display = 'flex'; // ✅ SHOW SPINNER
+
+            const formData = new FormData(this);
+
+            try {
+                await delay(1000); // ⏳ delay 1 saat
+
+                const response = await fetch('/submit-loan-application', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                const data = await response.json();
+
+                spinner.style.display = 'none'; // ❌ HIDE SPINNER
+
+                if (data.success) {
+                    
+                    // Redirect to WhatsApp
+                    window.open(data.whatsapp_url, '_blank');
+                    
+                    // Reset form
+                    this.reset();
+                } else {
+                    alert('❌ Ada ralat. Sila cuba lagi.');
+                }
+            } catch (error) {
+                spinner.style.display = 'none'; // ❌ HIDE kalau error juga
+                console.error('Error:', error);
+                alert('❌ Ada ralat dalam sistem. Sila hubungi kami.');
+            }
+        });
+
+        // Fungsi delay untuk simulasi loading
+        function delay(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Progress bar logic
+        const inputs = document.querySelectorAll('#loanForm input, #loanForm select');
+        const progress = document.querySelector('.progress-bar');
+        const progressText = document.querySelector('.progress-text');
+
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                let filled = 0;
+
+                inputs.forEach(i => {
+                    if (i.value.trim() !== '') filled++;
+                });
+
+                let percent = Math.round((filled / inputs.length) * 100);
+
+                progress.style.width = percent + '%';
+                progressText.textContent = percent + '%';
+            });
+        });
+
+        // Format telefon: 3 digit - 7 digit - 4 digit
+        document.querySelector('input[name="telefon"]').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '');
+
+            // ✅ limit max 11 digit (Malaysia max)
+            value = value.substring(0, 11);
+
+            // format
+            if (value.startsWith('011')) {
+                // format 011-xxxx-xxxx (11 digit)
+                if (value.length > 3 && value.length <= 7) {
+                    value = value.replace(/(\d{3})(\d+)/, '$1-$2');
+                } else if (value.length > 7) {
+                    value = value.replace(/(\d{3})(\d{4})(\d+)/, '$1-$2-$3');
+                }
+            } else {
+                // format biasa 012-xxx-xxxx (10 digit)
+                if (value.length > 3 && value.length <= 6) {
+                    value = value.replace(/(\d{3})(\d+)/, '$1-$2');
+                } else if (value.length > 6) {
+                    value = value.replace(/(\d{3})(\d{3})(\d+)/, '$1-$2-$3');
+                }
+            }
+
+            e.target.value = value;
+        });
+
+        // Format IC: 6 digit - 2 digit - 4 digit
+        document.querySelector('input[name="ic"]').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '');
+
+            // ✅ LIMIT 12 digit sahaja
+            value = value.substring(0, 12);
+
+            if (value.length > 6 && value.length <= 8) {
+                value = value.replace(/(\d{6})(\d+)/, '$1-$2');
+            } else if (value.length > 8) {
+                value = value.replace(/(\d{6})(\d{2})(\d+)/, '$1-$2-$3');
+            }
+
+            e.target.value = value;
+        });
+    </script>
+</body>
+<div id="loadingSpinner" class="dot-overlay">
+    <div class="dot-loader">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+</html>
