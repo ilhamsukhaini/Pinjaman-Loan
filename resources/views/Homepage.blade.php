@@ -667,8 +667,10 @@
 
         const submitBtn = this.querySelector('.submit-btn');
         const originalText = submitBtn.textContent;
+        const loadingSpinner = document.getElementById('loadingSpinner');
 
-        submitBtn.textContent = '⏳ Sedang memproses...';
+        // Show loading spinner
+        loadingSpinner.style.display = 'flex';
         submitBtn.disabled = true;
 
         const formData = new FormData(this);
@@ -684,11 +686,12 @@
 
             const data = await response.json();
 
+            // Hide loading spinner
+            loadingSpinner.style.display = 'none';
+
             if (data.success) {
                 submitBtn.textContent = '✅ Berjaya!';
                 submitBtn.style.background = '#28a745';
-
-                alert('✅ Permohonan berjaya!');
 
                 // ✅ DETECT DEVICE TYPE
                 const isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -700,7 +703,7 @@
                     // 💻 DESKTOP - open new tab
                     window.open(data.whatsapp_url, '_blank');
                     
-                    // Reset form (only on desktop sebab mobile redirect)
+                    // Reset form
                     this.reset();
 
                     // Reset button
@@ -713,6 +716,10 @@
             }
         } catch (error) {
             console.error('Error:', error);
+            
+            // Hide loading spinner
+            loadingSpinner.style.display = 'none';
+            
             submitBtn.textContent = '❌ Ada Ralat!';
             submitBtn.style.background = '#dc3545';
 
