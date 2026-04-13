@@ -428,7 +428,7 @@
         </div>
     </section> 
 
-    <a href="https://wa.me/60123456789" class="floating-wa">💬</a>
+    <a href="https://wa.me/60123485692" class="floating-wa">💬</a>
     
     <!-- Footer -->
     <footer>
@@ -461,12 +461,13 @@
                 spinner.style.display = 'none'; // ❌ HIDE SPINNER
 
                 if (data.success) {
-                    
-                    // Redirect to WhatsApp
-                    window.open(data.whatsapp_url, '_blank');
-                    
-                    // Reset form
-                    this.reset();
+
+                    // ✅ FIX: guna location.href (mobile friendly)
+                    window.location.href = data.whatsapp_url;
+
+                    // ❗ OPTIONAL: reset form (tak penting sangat sebab dah redirect)
+                    // this.reset();
+
                 } else {
                     alert('❌ Ada ralat. Sila cuba lagi.');
                 }
