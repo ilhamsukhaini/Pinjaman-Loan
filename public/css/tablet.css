@@ -1,0 +1,116 @@
+/* ===== TABLET ADJUSTMENTS (iPad & Medium Tablets) ===== */
+        @media (max-width: 1024px) {
+            nav { padding: 1rem 1.5rem; }
+            .logo { font-size: 16px; }
+            .nav-links { gap: 1.5rem; }
+            .nav-links a { font-size: 13px; }
+            
+            .hero { padding: 3.5rem 1.5rem; }
+            .hero h1 { font-size: 36px; }
+            .hero p { font-size: 16px; }
+            
+            .features { padding: 2.5rem 1.5rem; gap: 1.5rem; }
+            .feature-card h3 { font-size: 16px; }
+            
+            .info-section { padding: 2.5rem 1.5rem; }
+            .info-section h2 { font-size: 24px; }
+            .info-grid { gap: 1.5rem; }
+            
+            .terms-section { padding: 2.5rem 1.5rem; }
+            .terms-section h2 { font-size: 24px; }
+            .terms-grid { gap: 1.5rem; }
+            
+            .faq-section { padding: 2.5rem 1.5rem; }
+            .faq-section h2 { font-size: 24px; }
+            
+            .form-section { padding: 2.5rem 1.5rem; }
+            .form-container { padding: 2rem; }
+            .form-row { gap: 12px; }
+            
+            footer { padding: 1.5rem; font-size: 12px; }
+        }
+
+        /* ===== SMALL TABLETS & LARGE PHONES ===== */
+        @media (max-width: 768px) {
+            nav { 
+                padding: 1rem; 
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .logo { 
+                font-size: 14px;
+                width: 100%;
+                text-align: center;
+            }
+            .nav-links { 
+                gap: 1rem;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .nav-links a { font-size: 12px; }
+            
+            .hero { 
+                padding: 2.5rem 1rem; 
+            }
+            .hero h1 { font-size: 28px; }
+            .hero p { font-size: 14px; }
+            .cta-button { padding: 10px 24px; font-size: 14px; }
+            
+            .features { 
+                grid-template-columns: 1fr;
+                padding: 2rem 1rem; 
+                gap: 1rem;
+            }
+            .feature-card { padding: 1.25rem; }
+            .feature-card h3 { font-size: 15px; }
+            .feature-card p { font-size: 13px; }
+            
+            .info-section { padding: 2rem 1rem; }
+            .info-section h2 { font-size: 22px; margin-bottom: 1.5rem; }
+            .info-grid { 
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .info-item { padding: 1.25rem; }
+            .info-item h4 { font-size: 14px; }
+            .info-item p { font-size: 12px; }
+            
+            .terms-section { padding: 2rem 1rem; }
+            .terms-section h2 { font-size: 22px; margin-bottom: 1.25rem; }
+            .terms-grid { 
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .term-item { padding: 1.25rem; }
+            
+            .faq-section { padding: 2rem 1rem; }
+            .faq-section h2 { font-size: 22px; margin-bottom: 1.5rem; }
+            .faq-question { padding: 0.875rem; font-size: 13px; }
+            .faq-answer { padding: 0 0.875rem 0.875rem; font-size: 12px; }
+            
+            .form-section { padding: 2rem 1rem; }
+            .form-container { 
+                padding: 1.5rem;
+                border-radius: 12px;
+            }
+            .form-container h2 { font-size: 22px; margin-bottom: 1.25rem; }
+            .form-group { margin-bottom: 1rem; }
+            .form-row { 
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            label { font-size: 12px; }
+            input, select { 
+                padding: 10px 12px; 
+                font-size: 13px; 
+                border-radius: 6px;
+            }
+            .submit-btn { 
+                padding: 12px;
+                font-size: 14px;
+                border-radius: 6px;
+            }
+            
+            footer { padding: 1.5rem 1rem; font-size: 11px; }
+        }
