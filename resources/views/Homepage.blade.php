@@ -385,7 +385,7 @@
             }
             .faq-answer { 
                 padding: 0 0.75rem 0.75rem; 
-                font-size: 151px;
+                font-size: 15px;
             }
             .toggle-icon { font-size: 18px; }
             
