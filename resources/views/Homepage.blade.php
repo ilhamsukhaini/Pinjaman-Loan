@@ -420,7 +420,7 @@
             }
 
             .floating-wa {
-                bottom: 15px;
+                bottom: 17px;
                 right: 15px;
                 width: 48px;
                 height: 48px;
