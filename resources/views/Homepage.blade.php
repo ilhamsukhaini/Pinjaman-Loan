@@ -655,7 +655,7 @@
         </div>
     </section> 
 
-    <a href="https://wa.me/60123485692" class="floating-wa">💬</a>
+    <a href="https://wa.me/60193108581" class="floating-wa">💬</a>
     
     <!-- Footer -->
     <footer>

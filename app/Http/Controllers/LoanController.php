@@ -23,7 +23,7 @@ class LoanController extends Controller
         $message = $this->formatWhatsAppMessage($validated);
 
         // Get WhatsApp number (your cooperative's number)
-        $whatsappNumber = '60123485692'; // Ganti dengan number koperasi (format: countrycode + number, no + or -)
+        $whatsappNumber = '60193108581'; // Ganti dengan number koperasi (format: countrycode + number, no + or -)
 
         // Create WhatsApp URL
         $whatsappUrl = "https://wa.me/{$whatsappNumber}?text=" . urlencode($message);
