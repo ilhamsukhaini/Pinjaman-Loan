@@ -659,7 +659,7 @@
     
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Koperasi Pinjaman Malaysia. Semua hak terpelihara. | <a href="#">Dasar Privasi</a> | <a href="#">Syarat Penggunaan</a></p>
+        <p>&copy; 2026 Pinjaman Koperasi. Semua hak terpelihara. | <a href="#">Dasar Privasi</a> | <a href="#">Syarat Penggunaan</a></p>
     </footer>
     
     <script>
